@@ -1,2 +1,68 @@
 # Techtonic
 Techtonic in Unity
+
+# TODO
+- [ ] Terrain
+  - [ ] Initial materials static data (dirt, gravel, marble, granite, etc.)
+  - [ ] Initial minerals static data (iron, gold, plutonium, etc.)
+  - [ ] GeoNode script to track materials and minerals
+  - [ ] GeoNode object to render a single tile 
+  - [ ] Terrain script to generate GeoNodes.
+    - [ ] "Hilliness" - how much and how often the terrain goes above the ground level, on average
+    - [ ] "Valleyness" - how much and how often the terrain goes below ground level, on average
+    - [ ] Materials distribution
+    - [ ] Minerals distribution
+- [ ] Lava
+  - [ ] Terrain script to generate lava sources
+  - [ ] Lava script to track lava's progression through GeoNodes
+  - [ ] Lava occasionally flows out in two directions?
+  - [ ] Lava plume when lava breaks out from underground
+  - [ ] Lava travels through air nodes
+- [ ] Robot on Mining Map scene
+  - [ ] Render
+  - [ ] Walk
+  - [ ] Climb
+  - [ ] When terrain is too steep
+  - [ ] Animations
+- [ ] Animals on Mining Map?
+- [ ] World Map scene
+  - [ ] Top down or 3d?
+  - [ ] Competitors?
+  - [ ] Animals?
+  - [ ] Bases, or just the entrance/exit point?
+- [ ] Travel between World Map and Mining Map
+- [ ] Bases
+  - [ ] Mech Shop
+  - [ ] Bar
+  - [ ] Trading Post
+  - [ ] Black Market?
+- [ ] Mech Parts
+  - [ ] Chassis / Engine
+  - [ ] Storage
+  - [ ] Arms
+  - [ ] Legs
+  - [ ] Drills
+  - [ ] Sensors
+- [ ] Drilling
+  - [ ] Animations
+  - [ ] Acquire and store minerals
+  - [ ] Drilling through lava?
+- [ ] Damage
+  - [ ] Lava
+  - [ ] Fall
+  - [ ] Animals
+  - [ ] Fighting
+- [ ] Television
+  - [ ] Advertisements
+  - [ ] Black Market Programs (anything that isn't an ad!)
+    - [ ] Does a Dragon ... ? series
+    - [ ] Villains and Heroes series (villains create quests to mess with heroes)
+    - [ ] Universe Lore / History series
+  - [ ] DVR (record programs to watch directly later)
+- [ ] "Win" conditions
+  - [ ] Pay off your debt
+  - [ ] Buy a ticket
+  - [ ] Get smuggled out
+- [ ] Future Planet Types
+  - [ ] Water worlds - oil, capture critters, mining, swimming
+  - [ ] Fungus worlds - harvest plants, capture critters, mining, climbing
