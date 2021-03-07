@@ -1,6 +1,14 @@
 # Techtonic
 Techtonic in Unity
 
+# Setup
+- Clone the project onto your hard drive.
+- Open the project folder in Unity.
+- In Unity, go to Edit > Preferences > External Tools
+  - Make sure all options under "Generate .csproj files for:" are checked
+  - Click "Regenerate Project Files"
+- ??? Install Microsoft DotNet SDK ???  What version?  4.7.1 ???
+
 # TODO
 - [ ] Terrain
   - [ ] Initial materials static data (dirt, gravel, marble, granite, etc.)
