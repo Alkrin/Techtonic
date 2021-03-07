@@ -7,7 +7,8 @@ Techtonic in Unity
 - In Unity, go to Edit > Preferences > External Tools
   - Make sure all options under "Generate .csproj files for:" are checked
   - Click "Regenerate Project Files"
-- ??? Install Microsoft DotNet SDK ???  What version?  4.7.1 ???
+- Install Microsoft .Net Core SDK (https://dotnet.microsoft.com/download)
+- Restart your computer
 
 # TODO
 - [ ] Terrain
