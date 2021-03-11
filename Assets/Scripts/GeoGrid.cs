@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,16 +20,42 @@ public class GeoGrid : MonoBehaviour {
     }
 
     void GenerateMap() {
-        GeoNode node = Instantiate<GeoNode>(geoNodePrefab, new Vector3(0, 32), Quaternion.identity, canvas.transform);
-        node.Initialize(GeoMaterialName.Rock);
+        const int kMaxHeight = 15;
+        const int kAverageHeight = 10;
+        const int kMaxDepth = 5;
 
-        GeoNode node2 = Instantiate<GeoNode>(geoNodePrefab, new Vector3(0, 64), Quaternion.identity, canvas.transform);
-        node2.Initialize(GeoMaterialName.Gravel);
+        // Max number of y-steps across one x-step.
+        const int kMaxSlope = 3;
 
-        GeoNode node3 = Instantiate<GeoNode>(geoNodePrefab, new Vector3(0, 96), Quaternion.identity, canvas.transform);
-        node3.Initialize(GeoMaterialName.Dirt);
+        // Number of tiles on the far left and right that will have no slope (for easy entrance and exit).
+        const int kEdgeSize = 4;
 
-        GeoNode node4 = Instantiate<GeoNode>(geoNodePrefab, new Vector3(0, 128), Quaternion.identity, canvas.transform);
-        node4.Initialize(GeoMaterialName.Air);
+        // TODO: Stick these somewhere more shared?
+        const int kNodeWidth = 32;
+        const int kNodeHeight = 32;
+
+        const int kNumCols = 25;
+        const int kNumRows = 25;
+
+        System.Random rand = new System.Random();
+        int currentHeight = kAverageHeight;
+        for (int x = 0; x < kNumCols; ++x) {
+            if (x < kEdgeSize || x >= kNumCols - kEdgeSize) {
+                // First and last few tiles don't change height.
+            } else {
+                // Generate peaks and valleys
+                int deltaHeight = rand.Next(-kMaxSlope, kMaxSlope + 1);
+                int nextHeight = Math.Min(Math.Max(kMaxDepth, currentHeight + deltaHeight), kMaxHeight);
+                currentHeight = nextHeight;
+            }
+
+            // Generate the actual nodes in this column.
+            for (int y = 0; y < kNumRows; ++y) {
+                GeoMaterialName materialName = y < currentHeight ? GeoMaterialName.Rock : GeoMaterialName.Air;
+
+                GeoNode node = Instantiate<GeoNode>(geoNodePrefab, new Vector3(x * kNodeWidth, (y + 1) * kNodeHeight), Quaternion.identity, canvas.transform);
+                node.Initialize(materialName);
+            }
+        }
     }
 }
