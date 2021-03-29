@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Terrain
+    uniqueID: 2172447625
+    locked: 0
+  - name: Player
+    uniqueID: 695770755
+    locked: 0
+  - name: Lava
+    uniqueID: 3908027653
+    locked: 0

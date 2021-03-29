@@ -2,8 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class GeoGrid : MonoBehaviour {
+    public Tilemap terrainTilemap;
+    public Tile airTile;
+    public Tile dirtTile;
+    public Tile gravelTile;
+    public Tile rockTile;
     public GeoNode geoNodePrefab;
     private GameObject canvas;
 
@@ -37,6 +43,8 @@ public class GeoGrid : MonoBehaviour {
         const int kNumCols = 25;
         const int kNumRows = 25;
 
+        terrainTilemap.ClearAllTiles();
+
         System.Random rand = new System.Random();
         int currentHeight = kAverageHeight;
         for (int x = 0; x < kNumCols; ++x) {
@@ -51,10 +59,9 @@ public class GeoGrid : MonoBehaviour {
 
             // Generate the actual nodes in this column.
             for (int y = 0; y < kNumRows; ++y) {
-                GeoMaterialName materialName = y < currentHeight ? GeoMaterialName.Rock : GeoMaterialName.Air;
+                Tile materialTile = y < currentHeight ? rockTile : airTile;
 
-                GeoNode node = Instantiate<GeoNode>(geoNodePrefab, new Vector3(x * kNodeWidth, (y + 1) * kNodeHeight), Quaternion.identity, canvas.transform);
-                node.Initialize(materialName);
+                terrainTilemap.SetTile(new Vector3Int(x, y, 0), materialTile);
             }
         }
     }
